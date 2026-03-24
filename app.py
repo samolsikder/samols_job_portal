@@ -94,4 +94,13 @@ def apply_to_job(id):
 
 # এই অংশটি একদম বাম থেকে শুরু হবে
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)            
+    # এটি আপনার অনলাইন ডাটাবেসে (Aiven) টেবিলগুলো নিজে থেকেই তৈরি করে দেবে
+    with app.app_context():
+        try:
+            db.create_all()
+            print("Database tables created successfully!")
+        except Exception as e:
+            print(f"Error creating tables: {e}")
+
+    # রেন্ডারে চালানোর জন্য 0.0.0.0 হোস্ট ব্যবহার করা জরুরি
+    app.run(host='0.0.0.0', port=5000, debug=False)
