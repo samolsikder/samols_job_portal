@@ -7,8 +7,8 @@ app = Flask(__name__)
 # ডাটাবেস কানেকশন ডিটেইলস
 app.config['MYSQL_HOST'] = 'pg-3689f3ca-samolsikder45-ea9b.c.aivencloud.com'
 app.config['MYSQL_USER'] = 'avnadmin'
-# gitleaks:allow
-app.config['MYSQL_PASSWORD'] = 'AVNS_RgWvdbzCpHlr2n_J8VF'
+import os
+app.config['MYSQL_PASSWORD'] = os.environ.get('DB_PASSWORD', 'AVNS_RgWvdbzCpHlr2n_J8VF')
 app.config['MYSQL_DB'] = 'defaultdb'
 app.config['MYSQL_PORT'] = 23399
 app.config['MYSQL_CUSTOM_OPTIONS'] = {'ssl': {'ca': 'ca.pem'}}
