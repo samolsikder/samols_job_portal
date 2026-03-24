@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {{job.title}}-samols carrier
+        </title>
+        {% include 'nav.html' %}
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+          {% include 'banner.html'%}
+        <div class="container">
+            <h1 class="text-center"><b class="border-bottom" >samols carrier</b></h1> 
+          
+            <h3>{{job.title}}</h3>
+            <p>{{job.location}}</p>
+            <h3>responsibilities</h3>
+            <ul>
+                {% for line in job.responsibilities.split('|') %}
+                <li>{{line}}</li>
+                {% endfor %}
+            </ul>
+           
+            <h3>requirments</h3> 
+             <ol>
+                {% for line in job.requirments.split('|') %} 
+                <li>{{line}}</li>
+                {% endfor %}
+            </ol>
+            <h3>salary</h3>
+            <p>{{job.currency}}{{job.salary}}</p>
+            {% include 'application_form.html' %}
+            {% include 'FOOTER.HTML' %}
+        </div>
+       
+    </body>
+</html>

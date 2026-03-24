@@ -1,0 +1,16 @@
+<div class="border-bottom row" style="margin-bottom:16px; padding-bottom:8px;">
+    <div class="col-9">
+        <div style="color:rgb(120,120,120); margin-bottom:4px">
+            <h4>{{ job['title'] }}</h4>
+        </div>
+        <div>
+            <b>Location:</b> {{ job['location'] }}
+        </div>
+        <div>
+            <b>Salary:</b> {{ job['salary'] }}
+        </div>
+    </div>
+    <div class="col-3 text-end" style="padding-right:16px;">
+        <a href="/job/{{ job['id'] }}">বিস্তারিত দেখুন</a>
+    </div>
+</div>  

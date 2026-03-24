@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>application_submitted</title>
+         {% include 'bootstrap.html' %}
+
+    </head>
+    <body>
+         {% include 'nav.html' %}
+          {% include 'banner.html' %}\
+         <div class="container">
+            <h1 class="text-center">
+            <b>samols carrier</b>
+            </h1>
+           
+            <p><h4>your application for thr role "{{job['title']}}" has been submited</h4></p>
+            <b>full name</b>
+            <div class="mb-2">{{application['full_name']}}</div>
+            <b>email</b>
+            <div class="mb-2">{{application['email']}}</div>
+            <b>linkdin URL</b> 
+            <div class="mb-2">{{application['linkdIn URL']}}</div>
+        <div>
+
+    </body>
+    {% include 'FOOTER.HTML' %}
+</html> 

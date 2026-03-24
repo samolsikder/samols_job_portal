@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> samols website</title>
+     {% include 'bootstrap.html' %}
+    
+  </head>
+  
+  
+ 
+  <body>
+    {% include 'nav.html' %}
+    
+    <div class="container">
+        <h1 class="text-center">
+        <b>samols carrier</b>
+        </h1> 
+        {% include 'banner.html' %}
+
+     
+      <h2 class="text-center">about samol</h2> 
+      <div class="row">
+        <div class="col-6">
+          <p class="bodytext">i am samol sikder. i live in galachipa paurashava,patuakhali.</p>
+        </div>
+        <div class="col-6">
+          <img class="img-fluid" src="{{url_for('static',filename='image/prize.jpg')}}" style='height:320px' alt="my photo">
+        </div>
+      </div>
+      <h2 class="text-center">job opening</h2>
+      <div>
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}  
+        
+      </div>
+      <div class="text-center">
+      <a type="button" class="btn btn-primary"href="mailto:samolsikder45@gmail.com?subject=question%20for%20job%20us.&body=name%3A%3Cyour%20name%20here%3E%0D%0Aquestion%3A%3Center%20question%20here%3E">contract us</a>  
+      <p>copyright,2025</p>
+      </div>
+    </div>
+    {% include 'FOOTER.HTML' %}
+
+  </body>
+
+</html>
