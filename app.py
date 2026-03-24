@@ -1,13 +1,13 @@
 import mysql.connector
 from flask import Flask, render_template, jsonify, request 
 import requests
+import os
 
 app = Flask(__name__)
 
 # ডাটাবেস কানেকশন ডিটেইলস
 app.config['MYSQL_HOST'] = 'pg-3689f3ca-samolsikder45-ea9b.c.aivencloud.com'
 app.config['MYSQL_USER'] = 'avnadmin'
-import os
 app.config['MYSQL_PASSWORD'] = os.environ.get('DB_PASSWORD', 'AVNS_RgWvdbzCpHlr2n_J8VF')
 app.config['MYSQL_DB'] = 'defaultdb'
 app.config['MYSQL_PORT'] = 23399
