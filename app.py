@@ -68,6 +68,20 @@ def apply_to_job(id):
 
     except Exception as e:
         return f"Error: {str(e)}"
+    
+@app.route("/job/<id>/apply_form")
+def apply_form(id):
+    try:
+        connection = pymysql.connect(**db_config)
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM jobs WHERE id = %s", (id,))
+            job = cursor.fetchone()
+        connection.close()
+        
+        # এখানে আমরা ইউজারের সামনে ফর্মটি ওপেন করছি
+        return render_template('application_form.html', job=job)
+    except Exception as e:
+        return f"Error: {str(e)}"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
