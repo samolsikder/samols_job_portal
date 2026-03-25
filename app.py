@@ -1,19 +1,19 @@
-import pymysql  # mysql-connector এর বদলে এটি ব্যবহার করছি
+import pymysql  # mysql.connector এর বদলে এটি দিন (যেহেতু requirements এ PyMySQL আছে)
 from flask import Flask, render_template, jsonify, request 
 import requests
 import os
 
 app = Flask(__name__)
 
-# ডাটাবেস কনফিগারেশন (PyMySQL ফরম্যাটে)
+# ডাটাবেস কনফিগারেশন (PyMySQL ফরম্যাটে সামান্য পরিবর্তন)
 db_config = {
     "host": "pg-3689f3ca-samolsikder45-ea9b.c.aivencloud.com",
     "user": "avnadmin",
     "password": os.environ.get('DB_PASSWORD', 'AVNS_RgWvdbzCpHlr2n_J8VF'),
     "database": "defaultdb",
     "port": 23399,
-    "ssl": {'ca': 'ca.pem'}, # SSL ফাইল সরাসরি এখানে
-    "cursorclass": pymysql.cursors.DictCursor # এটি ডাটা ডিকশনারি আকারে দেয়
+    "ssl": {'ca': 'ca.pem'}, # PyMySQL-এ SSL এভাবে দিতে হয়
+    "cursorclass": pymysql.cursors.DictCursor
 }
 
 def load_jobs_from_db():
@@ -61,6 +61,5 @@ def apply_to_job(id):
         return f"Error: {str(e)}"
 
 if __name__ == "__main__":
-    # Render-এর পোর্টের জন্য এটি জরুরি
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
