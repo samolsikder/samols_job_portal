@@ -7,9 +7,9 @@ app = Flask(__name__)
 
 # ডাটাবেস কনফিগারেশন (PyMySQL ফরম্যাটে সামান্য পরিবর্তন)
 db_config = {
-    "host": "pg-3689f3ca-samolsikder45-ea9b.c.aivencloud.com",
+    "host": "mysql-f560c3-samolsikder45-ea9b.c.aivencloud.com",
     "user": "avnadmin",
-    "password": os.environ.get('DB_PASSWORD', 'AVNS_RgWvdbzCpHlr2n_J8VF'),
+    "password": os.environ.get('DB_PASSWORD', 'AVNS_QrgIodgkrMRV4z05XBc'),
     "database": "defaultdb",
     "port": 23399,
     "ssl": {'ca': 'ca.pem'}, # PyMySQL-এ SSL এভাবে দিতে হয়
