@@ -52,11 +52,20 @@ def apply_to_job(id):
     try:
         connection = pymysql.connect(**db_config)
         with connection.cursor() as cursor:
+            # এখানে 'job_data' তৈরি করা হলো
+            cursor.execute("SELECT * FROM jobs WHERE id = %s", (id,))
+            job_data = cursor.fetchone() 
+
+            # অ্যাপ্লিকেশন সেভ করার কোড
             insert_query = "INSERT INTO applications (job_id, full_name, email) VALUES (%s, %s, %s)"
             cursor.execute(insert_query, (id, data.get('full_name'), data.get('email')))
             connection.commit()
+            
         connection.close()
-        return "Application Submitted Successfully!"
+
+        # সাকসেস পেজ রেন্ডার করা
+        return render_template("application_submitted.html", application=data, job=job_data)
+
     except Exception as e:
         return f"Error: {str(e)}"
 
