@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>application_form</title>
-         {% include 'bootstrap.html' %}
 
-    </head>
-    <body>
-         {% include 'nav.html' %}
-          {% include 'banner.html' %}\
-         <div class="container">
-            <h1 class="text-center">
-            <b>samols carrier</b>
-            </h1>
-           
-            <div>application form </div> 
-            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            <form action="/job/{{job.id}}/apply" method="POST">
-            <div class="g-recaptcha" data-sitekey="6LcCUpYsAAAAAEREg9_Zfs30eP26U7hChozOGAKY"></div>
-          <br>
-          <div class="mb-2">
-              <label>full name</label><br>
-          <input type="text" name="full_name" placeholder="enter your name">
-          </div>
-          <div class="mb-2">
-                <label>email</label><br>
-            <input type="text" name="email" placeholder="enter your email">
-          </div>
-          <div class="mb-2">
-                <label>linkdIn URL</label><br> 
-            <input type="text" name="linkdIn URL" placeholder="enter your id"> 
-          </div>
-         <input type="submit" name="submit">
-
-          </form> 
-        <div>
-
-    </body>
-    {% include 'FOOTER.HTML' %}
-</html> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
