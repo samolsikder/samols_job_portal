@@ -52,11 +52,11 @@ def apply_form(id):
         connection = pymysql.connect(**db_config)
         with connection.cursor() as cursor:
             cursor.execute("SELECT * FROM jobs WHERE id = %s", (id,))
-            job = cursor.fetchone()
+            job_data = cursor.fetchone()
         connection.close()
         
-        # এখানে আমরা ইউজারের সামনে ফর্মটি ওপেন করছি
-        return render_template('application_form.html', job=job)
+        # 'application_form.html' পেজটি ওপেন হবে এবং জবের তথ্য দেখাবে
+        return render_template('application_form.html', job=job_data)
     except Exception as e:
         return f"Error: {str(e)}"
 
