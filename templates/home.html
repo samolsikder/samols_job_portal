@@ -1,47 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> samols website</title>
-     {% include 'bootstrap.html' %}
-    
-  </head>
-  
-  
- 
-  <body>
+    <title>Samols Website</title>
+    {% include 'bootstrap.html' %}
+</head>
+
+<body>
     {% include 'nav.html' %}
-    
-    <div class="container">
-        <h1 class="text-center">
-        <b>samols carrier</b>
-        </h1> 
+
+    <div class="container my-4">
+        <h1 class="text-center mb-4">
+            <b>Samols Carrier</b>
+        </h1>
+
         {% include 'banner.html' %}
 
-     
-      <h2 class="text-center">about samol</h2> 
-      <div class="row">
-        <div class="col-6">
-          <p class="container-fluid">i am samol sikder. i live in galachipa paurashava,patuakhali.</p>
+        <div class="container my-5 shadow-sm rounded bg-white p-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 text-section mb-4 mb-md-0">
+                    <h2 class="display-5 fw-bold text-dark mb-4">About Samol</h2>
+                    <p class="lead text-secondary" style="line-height: 1.8;">
+                        I am Samol Sikder. I am a passionate professional living in 
+                        <span class="fw-bold">Galachipa Paurashava, Patuakhali</span>. 
+                        I enjoy building things and working with technologies.
+                    </p>
+                </div>
+
+                <div class="col-md-5 text-center">
+                    <img src="{{url_for('static',filename='image/samol.jpg')}}" 
+                         class="img-fluid rounded shadow" 
+                         alt="Samol Sikder Photo"
+                         style="height: 300px; width: 300px; object-fit: cover; border: 5px solid #fff;">
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-          <img class="img-fluid" src="{{url_for('static',filename='image/samol.jpg')}}" style='height:320px' alt="my photo">
+
+        <h2 class="text-center mt-5 mb-4">Job Openings</h2>
+        <div class="job-list">
+            {% for job in jobs %}
+                {% include 'jobitem.html' %}
+            {% endfor %}
         </div>
-      </div>
-      <h2 class="text-center">job opening</h2>
-      <div>
-        {% for job in jobs %}
-          {% include 'jobitem.html' %}
-        {% endfor %}  
-        
-      </div>
-      <div class="text-center">
-      <a type="button" class="btn btn-primary"href="mailto:samolsikder45@gmail.com?subject=question%20for%20job%20us.&body=name%3A%3Cyour%20name%20here%3E%0D%0Aquestion%3A%3Center%20question%20here%3E">contract us</a>  
-      <p>copyright,2025</p>
-      </div>
+
+        <div class="text-center my-5">
+            <a href="mailto:samolsikder45@gmail.com?subject=question%20for%20job%20us.&body=name%3A%3Cyour%20name%20here%3E%0D%0Aquestion%3A%3Center%20question%20here%3E" 
+               class="btn btn-primary btn-lg">
+                Contact Us
+            </a>
+            <p class="mt-3 text-muted">Copyright &copy; 2026</p>
+        </div>
     </div>
+
     {% include 'FOOTER.HTML' %}
-
-  </body>
-
+</body>
 </html>
