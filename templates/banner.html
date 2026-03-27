@@ -1,25 +1,16 @@
 <style>
     #banner {
-        width: 100%;
-        /* হাইট কিছুটা কমিয়ে ৩০০px করা হয়েছে যা স্ট্যান্ডার্ড */
-        height: 300px; 
-        object-fit: cover;
-        /* ছবির পজিশন মাঝখানে রাখার জন্য */
-        object-position: center; 
-        margin-bottom: 24px;
-        /* চারকোনা একটু গোল করার জন্য চাইলে এটি দিতে পারেন */
-        border-radius: 0px;  
-        /* হালকা একটু শ্যাডো দিলে সুন্দর লাগবে */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        width: 100vw;       /* স্ক্রিনের পুরো চওড়া */
+        height: 300px;     /* উচ্চতা */
+        object-fit: cover; /* ছবি চ্যাপ্টা হবে না */
+        display: block;    /* বাড়তি গ্যাপ সরাতে */
     }
 
-    /* মোবাইল স্ক্রিনের জন্য হাইট আরও কমিয়ে দেওয়া */
-    @media (max-width: 768px) {
+    /* মোবাইলের জন্য একটু ছোট */
+    @media (max-width: 600px) {
         #banner {
             height: 200px;
         }
     }
 </style>
-<div class="full-width-banner">
-    <img class="img-fluid" id="banner" src="{{url_for('static',filename='image/school.jpg')}}" alt="School Building">
-</div>
+<img id="banner" src="{{url_for('static',filename='image/school.jpg')}}" alt="School Building">
