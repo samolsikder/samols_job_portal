@@ -9,13 +9,16 @@
 
 <body>
     {% include 'nav.html' %}
+     
 
     <div class="container my-4">
         <h1 class="text-center mb-4">
             <b>Samols Carrier</b>
         </h1>
+     </div>
+     {% include 'banner.html' %}
 
-        {% include 'banner.html' %}
+       
 
         <div class="container my-5 shadow-sm rounded bg-white p-4">
             <div class="row align-items-center">
@@ -42,7 +45,7 @@
             {% for job in jobs %}
                 {% include 'jobitem.html' %}
             {% endfor %}
-        </div>
+       
 
         <div class="text-center my-5">
             <a href="mailto:samolsikder45@gmail.com?subject=question%20for%20job%20us.&body=name%3A%3Cyour%20name%20here%3E%0D%0Aquestion%3A%3Center%20question%20here%3E" 
