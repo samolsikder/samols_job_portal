@@ -32,6 +32,14 @@ def hello_world():
     except Exception as e:
         return f"Database Error: {str(e)}"
 
+@app.route("/")
+def profile():
+    try:
+        jobs = load_jobs_from_db()
+        return render_template('profile.html', jobs=jobs)
+    except Exception as e:
+        return f"Database Error: {str(e)}"
+
 @app.route("/job/<id>")
 def show_job(id):
     try:
