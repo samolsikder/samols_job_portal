@@ -32,7 +32,7 @@ def hello_world():
     except Exception as e:
         return f"Database Error: {str(e)}"
 
-@app.route("/")
+@app.route("/profile")
 def profile():
     try:
         jobs = load_jobs_from_db()
