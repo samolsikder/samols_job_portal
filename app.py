@@ -32,13 +32,26 @@ def hello_world():
     except Exception as e:
         return f"Database Error: {str(e)}"
 
+# ১. এটি ডাটাবেস থেকে তথ্য আনার ফাংশন
+def load_profile_from_db():
+    connection = pymysql.connect(**db_config)
+    with connection.cursor(pymysql.cursors.DictCursor) as cursor:
+        cursor.execute("SELECT * FROM users WHERE id = 1")
+        result = cursor.fetchone()
+    connection.close()
+    return result
+
+# ২. এটি হলো আপনার প্রোফাইল পেজ দেখানোর রুট
 @app.route("/profile")
-def profile():
+def profile_page():
     try:
-        jobs = load_jobs_from_db()
-        return render_template('profile.html', jobs=jobs)
+        my_profile = load_profile_from_db() # উপরের ফাংশনটিকে কল করা হলো
+        if my_profile:
+            return render_template('profile.html', profile=my_profile)
+        else:
+            return "Profile not found in database!", 404
     except Exception as e:
-        return f"Database Error: {str(e)}"
+        return f"Error: {str(e)}"
 
 @app.route("/job/<id>")
 def show_job(id):
