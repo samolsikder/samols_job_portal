@@ -47,7 +47,7 @@ def profile():  # profile_page এর বদলে শুধু profile দি�
     try:
         my_profile = load_profile_from_db()
         if my_profile:
-            return render_template('profile.html', profile=my_profile)
+            return render_template('profile.html', profile=my_profile) 
         else:
             return "Profile not found in database!", 404
     except Exception as e:

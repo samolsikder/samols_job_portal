@@ -30,7 +30,7 @@
             <div class="col-md-8">
                 <div class="profile-card shadow-sm text-center">
                     
-                    <img src="{{ profile['image_url'] }}" class="rounded-circle profile-img shadow mb-3" alt="Profile Picture">
+                    <img src="{{url_for('static',filename='image/samol.jpg') }}" class="rounded-circle profile-img shadow mb-3" alt="Profile Picture">
                     
                     <h2 class="fw-bold">{{ profile['full_name'] }}</h2>
                     <p class="text-primary fw-semibold">{{ profile['designation'] }}</p>
