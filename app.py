@@ -43,16 +43,16 @@ def load_profile_from_db():
 
 # ২. এটি হলো আপনার প্রোফাইল পেজ দেখানোর রুট
 @app.route("/profile")
-def profile_page():
+def profile():  # profile_page এর বদলে শুধু profile দিনgvbb
     try:
-        my_profile = load_profile_from_db() # উপরের ফাংশনটিকে কল করা হলো
+        my_profile = load_profile_from_db()
         if my_profile:
             return render_template('profile.html', profile=my_profile)
         else:
             return "Profile not found in database!", 404
     except Exception as e:
         return f"Error: {str(e)}"
-
+    
 @app.route("/job/<id>")
 def show_job(id):
     try:
